@@ -1,20 +1,12 @@
-import React from 'react';
-import MenuComponent from '../pages/Component/Menu/Menu'
-import "antd/dist/antd.css";
+import styles from './index.css';
 
-class BasicLayout extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  render() {
-    return (
-      <div >
-        <MenuComponent></MenuComponent>
-      </div>
-    );
-  }
+function BasicLayout(props) {
+  return (
+    <div className={styles.normal}>
+      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
+      {props.children}
+    </div>
+  );
 }
-
 
 export default BasicLayout;
