@@ -1,6 +1,7 @@
 import styles from './index.css';
 import React from 'react';
 import { Button } from 'antd';
+import Link from 'umi/link';
 // import './App.css';
 
 export default function() {
@@ -14,6 +15,7 @@ export default function() {
           <a href="https://umijs.org/guide/getting-started.html">
             Getting Started
           </a>
+          <Link to="/home">Go to list page</Link>
         </li>
       </ul>
     </div>
