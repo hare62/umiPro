@@ -1,0 +1,97 @@
+// @import "~@/assets/less/vars.less";
+.ant-layout-sider{
+  background: #171E35;
+}
+.ant-menu-submenu.ant-menu-submenu-inline,.ant-menu-root.ant-menu-inline{
+  svg{
+    margin-right: 8px;
+    margin-left: -15px;
+    margin-top: -3px;
+    vertical-align: middle;
+    path{
+      fill: #8891B1;
+    }
+  }
+}
+.ant-menu-sub{
+  background: #141a2f;
+}
+// .ant-menu-submenu-title{
+//   // color:@label-color;
+//   &:active,
+//   &:focus,
+//   &:visited{
+//     // background:@bg-color-base;
+//   }
+// }
+.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open{
+  // .ant-menu-submenu-title,
+  .ant-menu,
+  .ant-menu-item{
+    background-color: #141a2f;
+  }
+  .ant-menu-item-selected{
+    background-color: #1c2954 !important;
+  }
+  &> .ant-menu-submenu-title{
+    color: white;
+    opacity: 1;
+  }
+  ul{
+    background: #141a2f;
+  }
+}
+.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open.ant-menu-submenu-selected{
+  svg path{
+    fill: #05CC7F;
+  }
+}
+
+.ant-menu .ant-menu-item {
+  // a{
+  //   color:@label-color;
+  // }
+  .active{
+    color:#fff;
+  }
+ 
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected{
+  background: #3B68ED;
+  border-radius: 2px;
+  background: rgba(59, 104, 237, .2);
+  .active{
+    color:#fff;
+  }
+}
+.ant-menu-inline .ant-menu-submenu-title,
+.ant-menu-inline > .ant-menu-item{
+  margin:0;
+  background: #171E35;
+}
+.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-inline > .ant-menu-item{
+  margin:0 !important;
+  height: 50px !important;
+  line-height: 50px !important;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  box-shadow: none;
+}
+.ant-menu-dark .ant-menu-submenu-title:hover{
+  background-color: #2C3862;
+}
+.ant-menu-dark .ant-menu-item:hover,.ant-menu-submenu-title:hover{
+  background-color: #2C3862 !important;
+}
+.ant-menu-item-selected{
+  svg path{
+    fill: #05CC7F !important;
+  }
+}
+.ant-menu-submenu-selected{
+  .ant-menu-submenu-title{
+    color:#fff;
+  }
+}

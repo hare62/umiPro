@@ -1,9 +1,12 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 import { router } from 'dva'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import './style.less'
 import 'antd/dist/antd.css';
+import Menu from './Menu'
+import menus from '@a/menuTree'
+import Breadcrumbs from '../pages/Component/Breadcrumbs'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -15,7 +18,6 @@ class MenuComponent extends React.Component {
   }
 
   render() {
-    console.log("----",this.props)
     const { children } = this.props
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -37,7 +39,9 @@ class MenuComponent extends React.Component {
               defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}
             >
-                <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
+
+              <Menu menus={menus} />
+              {/* <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
                   <Menu.Item key="1">option1</Menu.Item>
                   <Menu.Item key="2">option2</Menu.Item>
                   <Menu.Item key="3">option3</Menu.Item>
@@ -54,7 +58,7 @@ class MenuComponent extends React.Component {
                 <Menu.Item key="10">option10</Menu.Item>
                 <Menu.Item key="11">option11</Menu.Item>
                 <Menu.Item key="12">option12</Menu.Item>
-              </SubMenu>
+              </SubMenu> */}
             </Menu>
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
@@ -72,8 +76,9 @@ class MenuComponent extends React.Component {
                 background: 'olivedrab',
               }}
             >
+               <Breadcrumbs />
               {children}
-        </Content>
+            </Content>
           </Layout>
         </Layout>
       </Layout>

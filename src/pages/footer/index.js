@@ -1,9 +1,9 @@
-import styles from './index.css';
+// import styles from './index.css';
 
 export default function() {
   return (
-    <div className={styles.normal}>
-        footer
+    <div >
+        footer页面
     </div>
   );
 }

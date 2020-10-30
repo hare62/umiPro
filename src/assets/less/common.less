@@ -1,0 +1,243 @@
+@import "~@/assets/less/vars";
+
+//样式重置和公共CSS
+html,
+body,
+:global(#root) {
+  height: 100%;
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .link-color {
+    color: #22B37A;
+  }
+
+  ol,
+  ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    border: 0;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  table tr td .ant-tooltip {
+    white-space: normal;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  table tr td:not(.ant-table-selection-column) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .float-r {
+    float: right;
+  }
+
+  .float-l {
+    float: left;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  .focus-none:focus {
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, .65);
+  }
+
+  .focus-none:hover {
+    border-color: #40a9ff;
+    color: #40a9ff;
+  }
+
+  .margin-left-30 {
+    margin-left: 30px !important;
+  }
+
+  //清除边距
+  .no-padding {
+    padding: 0 !important;
+  }
+
+  // scrollbar
+  ::-webkit-scrollbar-track {
+    background-color: #141A2E;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #313F70;
+    border-radius: 6px;
+  }
+
+  //展开的嵌套表格
+  .inner-table {
+    position: relative;
+    margin: 20px 0;
+    border: 1px solid #304596;
+    background: #1F294F;
+
+    .search-bar {
+      margin-bottom: 0;
+    }
+
+    .ant-form,
+    .ant-pagination,
+    .table-wrap {
+      background: #1F294F !important;
+    }
+
+    &:before {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-width: 0 8px 10px;
+      border-style: solid;
+      border-color: transparent transparent #304596;
+    }
+
+    &:after {
+      display: block;
+      content: '';
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      border-width: 0 8px 10px;
+      border-style: solid;
+      border-color: transparent transparent #1F294F;
+    }
+
+    .table-wrap {
+      padding-bottom: 0;
+      border: 0;
+      td {
+        background-color: #1F294F !important;
+        border-bottom: 1px solid #304596;
+      }
+    }
+  }
+
+  //详情页样式
+  .main-detail-content {
+    position: relative;
+    margin-bottom: 20px;
+
+    .detail-box {
+      margin-bottom: 30px;
+      padding: 30px 0;
+      border: 1px solid @border-color;
+
+      // 详情标题
+      .detail-title {
+        position: relative;
+        margin: 0 40px 20px 40px;
+        padding-bottom: 7px;
+        color: #fff;
+        border-bottom: 1px solid #506099;
+      }
+
+      .detail-content {
+        color: #fff;
+        padding: 0 40px;
+        line-height: 42px;
+        font-size: 12px;
+        border-radius: 2px;
+        word-break: break-all;
+        .ant-row{
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .ant-col {
+          display: flex;
+          margin-bottom: 14px;
+          padding-right: 40px;
+          line-height: 1.5;
+
+          span {
+            flex-shrink: 0;
+            width: 100px;
+          }
+        }
+
+        .ant-col-xl-24 {
+          padding-right: 0;
+        }
+      }
+
+      .table-wrap {
+        margin: 0 40px;
+      }
+    }
+
+    .ant-tabs {
+      min-height: 600px !important;
+      padding-bottom: 10px;
+    }
+
+    .ant-tabs-top-bar {
+      padding: 0;
+    }
+
+    .table-btn {
+      padding: 20px;
+    }
+
+  }
+
+  .search-input {
+    width: 300px;
+    margin: 20px 0;
+    position: relative;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      margin-left: -25px;
+      margin-top: 2px;
+    }
+  }
+}

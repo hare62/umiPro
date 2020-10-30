@@ -15,7 +15,7 @@ export default function() {
           <a href="https://umijs.org/guide/getting-started.html">
             Getting Started
           </a>
-          <Link to="/home">Go to list page</Link>
+          <Link to="./home">Go to list page</Link>
         </li>
       </ul>
     </div>
