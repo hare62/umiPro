@@ -11,8 +11,6 @@ export default [
     name: 'Home',
     path: '/home',  
     tag: 'home',
-    // icon: icon[3],  
-    // show: true,
     children: [
       {
         key: 'business',
@@ -27,6 +25,13 @@ export default [
     name: 'Footer',
     path: '/footer',
     tag: 'footer',
-    // show: true,
+    children: [
+      {
+        key: 'business',
+        name: 'business',
+        tag: '',
+        path: '/footer',
+      }
+    ]
   },
 ]

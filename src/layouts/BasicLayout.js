@@ -25,15 +25,15 @@ class MenuComponent extends React.Component {
         >后台工具</div>
         <Layout>
           <Sider width={200}>
-            <Menu
+             <Menu 
+              menus={menus} 
+              className="site-layout-background"
               theme="dark"
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}
-            >
-              <Menu menus={menus} className="site-layout-background" />
-            </Menu>
+              /> 
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>

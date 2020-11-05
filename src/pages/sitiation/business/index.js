@@ -11,10 +11,13 @@ class Business extends React.Component {
 
     // 将csv转换成简单的表格，会忽略单元格合并，在第一行和第一列追加类似excel的索引
     csv2table = (csv) => {
-        console.log("传回看来的参数",csv)
+        // console.log("传回看来的参数",csv)
+        debugger
         var html = '<table>';
         var rows = csv.split('\n');
         rows.pop(); // 最后一行没用的
+        console.log("=--rows----",rows)
+        let arr = []
         rows.forEach(function (row, idx) {
             var columns = row.split(',');
             columns.unshift(idx + 1); // 添加行索引
@@ -30,9 +33,30 @@ class Business extends React.Component {
                 html += '<td>' + column + '</td>';
             });
             html += '</tr>';
+            let obj = {}
+            if(idx === 0){
+                columns.forEach(function (column) {
+                   obj[column] = ""
+                });
+            }else{
+                columns.forEach(function (column) {
+                    obj[column] = ""
+                 }); 
+            }
         });
         html += '</table>';
         return html;
+    }
+
+    outputFile = (workbook)=>{
+        var sheetNames = workbook.SheetNames; // 工作表名称集合
+	sheetNames.forEach(name => {
+		var worksheet = workbook.Sheets[name]; // 只能通过工作表名称来获取指定工作表
+		for(var key in worksheet) {
+			// v是读取单元格的原始值
+			console.log(key, key[0] === '!' ? worksheet[key] : worksheet[key].v);
+		}
+	});
     }
 
     onImportExcel = file => {
@@ -45,24 +69,30 @@ class Business extends React.Component {
                 const { result } = event.target;
                 // 以二进制流方式读取得到整份excel表格对象
                 const workbook = XLSX.read(result, { type: 'binary' });
-                console.log("---workbook-", workbook)
+                this.outputFile(workbook)
                 let data = []; // 存储获取到的数据
                 // 遍历每张工作表进行读取（这里默认只读取第一张表）
+                console.log("---读取文件对象",workbook)
                 for (const sheet in workbook.Sheets) {
                     if (workbook.Sheets.hasOwnProperty(sheet)) {
                         // 利用 sheet_to_json 方法将 excel 转成 json 数据
                         data = data.concat(XLSX.utils.sheet_to_csv(workbook.Sheets[sheet]));
+                        console.log("----yige yige data",data)
                         // break; // 如果只取第一张表，就取消注释这行
+
+
                     }
                 }
-                console.log(data);
                 // var csv = XLSX.utils.sheet_to_csv(data);
-                // console.log("--csv-",csv)
-                document.getElementById('result').innerHTML = this.csv2table(data);
-                console.log("-------",document.getElementById('result').innerHTML)
+                // console.log("--csv-",csv
+                // console.log("---data",data)
+                // document.getElementById('result').innerHTML = this.csv2table(data);
+
+                var csv = XLSX.utils.sheet_to_csv(workbook.Sheets.Sheet1);
+                // console.log("----看看这个数据",csv)
+	            document.getElementById('result').innerHTML = this.csv2table(csv);
             } catch (e) {
                 // 这里可以抛出文件类型错误不正确的相关提示
-                console.log('文件类型不正确');
                 return;
             }
         };
@@ -111,8 +141,9 @@ class Business extends React.Component {
         return (
             <>
                 <input type='file' accept='.xlsx, .xls' onChange={this.onImportExcel} />
-                <div id='result'></div>
+                
                 <Button onClick={this.onClickButton}>点击</Button>
+                <div id='result'></div>
             </>
         )
     }
