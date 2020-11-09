@@ -13,10 +13,10 @@ export default [
     tag: 'home',
     children: [
       {
-        key: 'business',
-        name: 'business',
+        key: 'toJson',
+        name: 'toJson',
         tag: '',
-        path: '/sitiation/business',
+        path: '/sitiation/toJson',
       }
     ]
   },
@@ -28,7 +28,7 @@ export default [
     children: [
       {
         key: 'business',
-        name: 'business',
+        name: '导入表格转json',
         tag: '',
         path: '/footer',
       }
