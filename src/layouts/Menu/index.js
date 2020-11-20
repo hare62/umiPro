@@ -125,7 +125,7 @@ class Menus extends Component {
     }
 
     return <Item key={item.path}>
-      <NavLink to={item.path}>{item.name}
+      <NavLink   to={item.path}>{item.name}
       </NavLink>
     </Item>
   })

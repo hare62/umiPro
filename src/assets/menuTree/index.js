@@ -29,7 +29,7 @@ export default [
       {
         key: 'business',
         name: '导入表格转json',
-        tag: '',
+        target: '_blank',
         path: '/footer',
       }
     ]
