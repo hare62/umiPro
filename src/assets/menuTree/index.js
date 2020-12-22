@@ -8,13 +8,13 @@
 export default [
   {
     key: 'asset',
-    name: 'Home',
-    path: '/home',  
+    name: '主页面',
+    path: '/sitiation',  
     tag: 'home',
     children: [
       {
         key: 'toJson',
-        name: 'toJson',
+        name: '转数据页面',
         tag: '',
         path: '/sitiation/toJson',
       }
@@ -22,7 +22,7 @@ export default [
   },
   {
     key: 'footer',
-    name: 'Footer',
+    name: '副业面',
     path: '/footer',
     tag: 'footer',
     children: [
@@ -30,7 +30,7 @@ export default [
         key: 'business',
         name: '导入表格转json',
         target: '_blank',
-        path: '/footer',
+        path: '/footer/file',
       }
     ]
   },

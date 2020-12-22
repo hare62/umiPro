@@ -1,27 +1,54 @@
 import React from 'react'
 import { Layout, Breadcrumb } from 'antd';
-import { router } from 'dva'
 import 'antd/dist/antd.css';
 import Menu from './Menu'
 import menus from '@a/menuTree'
-import Breadcrumbs from '../pages/Component/Breadcrumbs'
+import Breadcrumbs from './Breadcrumb/index'
 import './style.less'
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-const { NavLink } = router
-
+const { Content, Sider } = Layout;
 class MenuComponent extends React.Component {
   constructor(props) {
     super(props)
+    this.state={
+
+    }
+  }
+
+  /**
+   * 通过当前路径找到对应的节点信息
+   * @param data
+   * @param path
+   * @return {*}
+   */
+  findNodeByPath = (data = [], path) => {
+    //此处 findNodeList 充当队列的作用
+    let findNodeList = [...data]
+    while(findNodeList.length) {
+      let rootNode = findNodeList[ 0 ]
+      if(rootNode.path === path) {
+        return rootNode
+      }
+      //清除队列中的第一个元素
+      findNodeList.shift()
+      let childrenNode = rootNode.children
+      if(childrenNode) {
+        childrenNode.forEach(item => {
+          findNodeList.push(item)
+        })
+      }
+    }
   }
 
   render() {
     const { children } = this.props
+    // console.log('menus', menus)
+    // console.log('this.props', this.props)
+    
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <div 
-          style={{height:'80px',lineHeight:'80px',paddingLeft:'20px',fontSize:"bold",backgroundColor:"#262829",color:"#fff",fontSize: 'x-large'}}
+          style={{ height:'80px',lineHeight:'80px',paddingLeft:'20px',fontSize:"bold",backgroundColor:"#262829",color:"#fff",fontSize:'x-large' }}
         >后台工具</div>
         <Layout>
           <Sider width={200}>
@@ -36,11 +63,7 @@ class MenuComponent extends React.Component {
               /> 
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumbs />
             <Content
               className="site-layout-background"
               style={{
@@ -50,7 +73,6 @@ class MenuComponent extends React.Component {
                 background: 'olivedrab',
               }}
             >
-               <Breadcrumbs />
               {children}
             </Content>
           </Layout>
