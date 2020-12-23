@@ -8,13 +8,40 @@ import { LoadingControl } from '../../Component/common/model'
 class Business extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {}
+    }
+
+    componentDidMount() {
+        this.firstUniqChar(["flower", "flow", "flight"])
+    }
+
+    /**
+     * @param {string} s
+     * @return {number}
+     */
+    firstUniqChar = function (strs) {
+        if (strs.length === 0){
+            return "";
+        }
+        let ans = strs[0];
+        for (let i = 1; i < strs.length; i++) {
+            let j = 0
+            for (; j < ans.length && j < strs[i].length; j++) {
+                if (ans[j] !== strs[i][j])
+                    break;
+            }
+            ans = ans.substr(0, j);
+            if (ans === "")
+                return ans;
+        }
+        return ans;
     }
 
     // 将csv转换成简单的表格，会忽略单元格合并，在第一行和第一列追加类似excel的索引
     csv2table = (csv) => {
         var html = '<table>';
         var rows = csv.split('\n');
-        rows.pop(); // 最后一行没用的
+        rows.pop(); // 最后一行没用的this.state=
         let arr = []
         let oneArr = rows[0].split(',')
         rows.shift()
@@ -112,10 +139,10 @@ class Business extends React.Component {
         return blob;
     }
 
-    opnMadel = ()=>{
+    opnMadel = () => {
         LoadingControl.show()
     }
-    
+
     render() {
         return (
             <>

@@ -16,6 +16,9 @@ class RenderBreadcrumb extends React.Component {
     this.changeList()
   }
 
+  /**
+   * 每次点击页面就会触发更新这个函数
+   */
   changeList = ()=>{
     let arrPath = this.props.history.location.pathname.slice(1).split('/')
     let data = this.getBreadcrumbList(arrPath)
