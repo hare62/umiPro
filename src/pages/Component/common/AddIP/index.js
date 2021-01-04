@@ -43,7 +43,7 @@ class Demo extends React.Component {
               rules: [{ validator: this.checkPrice, required: true }]
             })(<PriceInput />)}
           </Form.Item>
-          <img key={'operation.key'} src={require('@/assets/images/biaodanxinzeng.svg')} alt='' style={{ width: 30, height: 30 }} onClick={this.onClick}/>
+          {/* <img key={'operation.key'} src={require('@/assets/images/biaodanxinzeng.svg')} alt='' style={{ width: 30, height: 30 }} onClick={this.onClick}/> */}
         </Form>
       </div>
     )
