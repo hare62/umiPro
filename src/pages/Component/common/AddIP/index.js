@@ -97,5 +97,5 @@ class PriceInput extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo)
-export default WrappedDemo
+// const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo)
+export default Demo

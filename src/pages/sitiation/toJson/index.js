@@ -2,7 +2,7 @@ import React from 'react'
 import * as XLSX from 'xlsx';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd'
-import { LoadingControl } from '../../Component/common/model'
+import './index.less'
 
 
 class Business extends React.Component {
@@ -12,7 +12,7 @@ class Business extends React.Component {
 
     // 将csv转换成简单的表格，会忽略单元格合并，在第一行和第一列追加类似excel的索引
     csv2table = (csv) => {
-        var html = '<table>';
+        var html = '<table  className="table-border">';
         var rows = csv.split('\n');
         rows.pop(); // 最后一行没用的
         let arr = []
@@ -33,7 +33,8 @@ class Business extends React.Component {
 
             arr.push(obj)
         });
-        html += '</table>';
+        html += `</table >`;
+        console.log('--html-', html)
         return html;
     }
 
@@ -111,17 +112,12 @@ class Business extends React.Component {
         }
         return blob;
     }
-
-    opnMadel = ()=>{
-        LoadingControl.show()
-    }
     
     render() {
         return (
             <>
                 <input type='file' accept='.xlsx, .xls' onChange={this.onImportExcel} />
                 <div id='result'></div>
-                <button onClick={this.opnMadel}>按钮</button>
             </>
         )
     }
