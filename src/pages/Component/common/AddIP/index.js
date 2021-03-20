@@ -22,7 +22,7 @@ class Demo extends React.Component {
   }
 
   onClick = () => {
-    
+
   }
 
   render () {
@@ -47,7 +47,7 @@ class Demo extends React.Component {
         </Form>
       </div>
     )
-  } 
+  }
 }
 
 class PriceInput extends React.Component {
@@ -73,7 +73,7 @@ class PriceInput extends React.Component {
     }
   };
 
-  render () { 
+  render () {
     const { size, value } = this.props
     return (
       <span>
@@ -97,5 +97,5 @@ class PriceInput extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo)
-export default WrappedDemo
+// const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo)
+export default Demo

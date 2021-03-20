@@ -2,7 +2,6 @@ import styles from './index.css';
 import React from 'react';
 import { Button } from 'antd';
 import Link from 'umi/link';
-import { LoadingView } from '../pages/Component/common/model'
 
 export default function () {
   return (
@@ -17,7 +16,6 @@ export default function () {
           </a>
           <Link to="./home">Go to list page</Link>
           哈哈哈哈
-         <LoadingView></LoadingView>
         </li>
       </ul>
     </div>

@@ -2,8 +2,6 @@ import React from 'react'
 import * as XLSX from 'xlsx';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd'
-import { LoadingControl } from '../../Component/common/model'
-
 
 class Business extends React.Component {
     constructor(props) {
@@ -139,16 +137,11 @@ class Business extends React.Component {
         return blob;
     }
 
-    opnMadel = () => {
-        LoadingControl.show()
-    }
-
     render() {
         return (
             <>
                 <input type='file' accept='.xlsx, .xls' onChange={this.onImportExcel} />
                 <div id='result'></div>
-                <button onClick={this.opnMadel}>按钮</button>
             </>
         )
     }
