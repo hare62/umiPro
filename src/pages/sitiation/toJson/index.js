@@ -2,19 +2,26 @@ import React from 'react'
 import * as XLSX from 'xlsx';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd'
+import DataBinding from '../../../pages/Component/DataBinding'
 
+let aa = 'default'
 class Business extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+
+        }
     }
 
     componentDidMount() {
+        this.data = { "hare": 'name'}
         this.firstUniqChar(["flower", "flow", "flight"])
+        DataBinding.getInstance().bindComponent(this, this.data)
+        this.isset = false;
     }
 
     /**
-     * @param {string} s
+     * @param {string}
      * @return {number}
      */
     firstUniqChar = function (strs) {
@@ -137,11 +144,31 @@ class Business extends React.Component {
         return blob;
     }
 
+    handle = ()=>{
+      DataBinding.getInstance().setData(this, "hare", "12333");
+    }
+
+    handleA = () =>{
+      aa = "kkkkk"
+      this.forceUpdate()
+    }
+
+    getP () {
+      return (
+        <p>{DataBinding.getInstance().getData(this, "hare")}</p>
+        )
+    }
+
     render() {
+        console.log(DataBinding.getInstance().getData(this, "hare"))
         return (
             <>
+                {this.getP()}
+
                 <input type='file' accept='.xlsx, .xls' onChange={this.onImportExcel} />
                 <div id='result'></div>
+                <button onClick={this.handle}>点击</button>
+                <button onClick={this.handleA}>{aa}</button>
             </>
         )
     }
