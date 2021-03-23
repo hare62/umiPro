@@ -70,7 +70,7 @@ class MenuComponent extends React.Component {
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
-                background: 'olivedrab',
+                background: '#151B30',
               }}
             >
               {children}
