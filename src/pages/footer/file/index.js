@@ -23,18 +23,13 @@ class Footer extends React.Component {
       this.next = null
     }
     // 创建单链表对象实例类
-    function LinkedList(rest) {
+    function LinkedList(...rest) {
       this._head = new Node('_head') // 链表头节点
       // 如果new时有传进值，则添加到实例中
       if (rest.length) {
-        this._head.element = '_head'
-        this._head.next = null
-        let p = this._head
+        this.insert(rest[0], '_head')
         for (let i = 1; i < rest.length; i++) {
-          let newNode = new Node(rest[i])
-          newNode.next = p.next
-          p.next = newNode
-          p = p.next
+          this.insert(rest[i], rest[i - 1])
         }
       }
     }
@@ -63,17 +58,6 @@ class Footer extends React.Component {
         return currNode;
       } else if (currNode.element !== item || currNode === null) {
         return -1;
-      }
-    }
-    // 插入节点，找到要插入到的item的节点位置，把新节点插到item后面
-    function insert(newElement, item) {
-      let insertNode = new Node(newElement);
-      let currNode = this.find(item)
-      if (currNode) {
-        insertNode.next = currNode.next
-        currNode.next = insertNode
-      } else {
-        return -1
       }
     }
     // 通过元素的索引返回该元素
@@ -119,7 +103,17 @@ class Footer extends React.Component {
       }
       return -1
     }
-    
+    // 插入节点，找到要插入到的item的节点位置，把新节点插到item后面
+    function insert(newElement, item) {
+      let insertNode = new Node(newElement);
+      let currNode = this.find(item)
+      if (currNode) {
+        insertNode.next = currNode.next
+        currNode.next = insertNode
+      } else {
+        return -1
+      }
+    }
     // 插入节点，新节点插到index索引下
     function insertIndex(newElement, index) {
       let insertNode = new Node(newElement)
@@ -200,10 +194,10 @@ class Footer extends React.Component {
       reversalList(obj._head.next)
     }
     // 运行测试
-    let obj = new LinkedList(['节点0', '节点1', '节点2', '节点3', '节点4', '节点5'])
+    let obj = new LinkedList('节点0', '节点1', '节点2', '节点3', '节点4', '节点5')
     console.log('---实例对象obj', obj)
-    // console.log(obj)
-    // obj.remove('节点5')
+    console.log(obj)
+    obj.remove('节点5')
     // console.log(obj.display())
     // console.log('---末尾插入元素')
     // obj.push('push插入')
@@ -240,7 +234,7 @@ class Footer extends React.Component {
       <div >
         footer页面
         <div style={{width: '100px', height: '30px', backgroundColor: 'honeydew', display: 'flex', justifyContent: 'space-around', alignItems: 'center', borderRadius:'5px'}}>
-          节点2
+          节点1
           <spn style={{marginLeft:'10px',width:'20px', height:'20px',borderRadius:'50px',backgroundColor:'#ef5d5a',display:'flex',justifyContent:'center', color:'white'}}>X</spn>
         </div>
       </div>
