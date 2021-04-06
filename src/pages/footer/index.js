@@ -12,7 +12,6 @@ class Footer extends React.Component {
   }
 
   init() {
-    //hare
     // 创建节点类 Node
     function Node(element) {
       this.element = element
