@@ -15,7 +15,7 @@ export default function () {
             Getting Started
           </a>
           <Link to="./home">Go to list page</Link>
-          哈哈哈哈
+          哈哈哈哈jjjj
         </li>
       </ul>
     </div>
