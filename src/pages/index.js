@@ -6,7 +6,7 @@ import Link from 'umi/link';
 export default function () {
   return (
     <div>
-      <div className={styles.welcome} />
+      {/* <div className={styles.welcome} />
       <ul className={styles.list}>
         <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
         <Button type="primary">Button</Button>
@@ -17,7 +17,7 @@ export default function () {
           <Link to="./home">Go to list page</Link>
           哈哈哈哈jjjj
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
