@@ -1,6 +1,6 @@
 import React from 'react'
 
-/* 
+/*
   单链表实现
   通过LinkedList的类创建链表实例，链表下有添加，查找，删除，显示节点的方法
   链表初始默认有一个"_head"头部节点，链表中不显示
@@ -86,7 +86,7 @@ class Footer extends React.Component {
 
       return -1
     }
-    // 寻找目标节点item的上一个节点，未找到返回-1 
+    // 寻找目标节点item的上一个节点，未找到返回-1
     function findPrev(item) {
       let currNode = this._head;
       while (currNode !== null) {

@@ -40,4 +40,18 @@ export default [
       },
     ]
   },
+  {
+    key: 'form',
+    name: '表单',
+    path: '/form',
+    tag: 'form',
+    children: [
+      {
+        key: 'test',
+        name: '表单',
+        target: '_blank',
+        path: '/form'
+      }
+    ]
+  }
 ]
