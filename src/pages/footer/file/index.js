@@ -1,4 +1,5 @@
 import React from 'react'
+import * as XLSX from 'xlsx';
 
 /*
   单链表实现
@@ -6,9 +7,137 @@ import React from 'react'
   链表初始默认有一个"_head"头部节点，链表中不显示
 */
 class Footer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
+  }
+
+  componentDidMount() {
+    /* 需要导出的JSON数据 */
+    var data = [
+      { "name": "John", "city": "Seattle" },
+      { "name": "Mike", "city": "Los Angeles" },
+      { "name": "Zach", "city": "New York" }
+    ];
+
+    let obj = {
+      name: '名称',
+      owner: '资源Owner',
+      leader: '主管',
+      query: '查询',
+      reset: '重置',
+      more: '更多',
+      ok: '确定',
+      cancel: '取消',
+      all: '全部',
+      add: '新增',
+      batchAdd: '批量添加权限',
+      delete: '删除',
+      edit: '编辑',
+      description: '描述',
+      remove: '移除',
+      confirm: '确认',
+      operation: '操作',
+      activate: '启动',
+      forbidden: '停用',
+      check: '查看',
+      revoke: '回收',
+      authorization_start_time: '授权开始时间',
+      permissions: '权限',
+      role: '角色',
+      pass: '通过',
+      no_pass: '拒绝',
+      passed: '已通过',
+      accept: '通过',
+      approve: '同意',
+      refuse: '拒绝',
+      reject: '拒绝',
+      rejected: '已驳回',
+      notice: '提醒',
+      user: '用户',
+      author: '提交人',
+      reason: '理由',
+      note: '备注',
+      username: '用户名',
+      pleaseInput: '请输入',
+      pleaseSelect: '请选择',
+    }
+    let en={
+      name: 'Name',
+      owner: 'Owner',
+      leader: 'leader',
+      query: 'Query',
+      reset: 'Reset',
+      more: 'More',
+      ok: 'Ok',
+      cancel: 'Cancel',
+      all: 'All',
+      add: 'Add',
+      batchAdd: 'Batch add',
+      delete: 'Delete',
+      edit: 'Edit',
+      description: 'Description',
+      remove: 'Remove',
+      confirm: 'Confirm',
+      operation: 'Operation',
+      activate: 'Activate',
+      forbidden: 'Forbidden',
+      check: 'Check',
+      revoke: 'Revoke',
+      authorization_start_time: 'Authorization start time',
+      permissions: 'Permissions',
+      role: 'Role',
+      pass: 'Pass',
+      no_pass: 'no pass',
+      passed: 'Passed',
+      accept: 'Accept',
+      approve: 'Accept',
+      reject: 'Reject',
+      refuse: 'Reject',
+      rejected: 'Rejected',
+      notice: 'Notice',
+      user: 'User',
+      author: 'Author',
+      reason: 'Reason',
+      note: 'Note',
+      username: 'Username',
+      pleaseInput: 'Please input',
+    }
+
+    var ChineseData = [
+      { 'key': 'name', 'zh-ch': '姓名'},
+      { 'key': 'age', 'zh-ch': '年龄'},
+      { 'key': 'apple', 'zh-ch': '苹果'},
+    ]
+
+
+    let objKey = Object.keys(obj)
+    let newobj = []
+    for(let i = 0; i < objKey.length; i++){
+      let tempObj = {}
+      tempObj.key = objKey[i]
+      tempObj['zh-ch'] = obj[objKey[i]]
+      newobj.push(tempObj)
+    }
+
+
+    console.log('new', newobj)
+
+
+    /* 如果没有导入xlsx组件则导入 */
+    // if (typeof XLSX == 'undefined') XLSX = require('xlsx');
+
+    /* 创建worksheet */
+
+    var ws = XLSX.utils.json_to_sheet(newobj);
+    console.log('--ws--', ws)
+
+    /* 新建空workbook，然后加入worksheet */
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "People");
+
+    /* 生成xlsx文件 */
+    XLSX.writeFile(wb, "sheet.xlsx");
   }
 
   init() {

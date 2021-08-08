@@ -17,7 +17,6 @@ class Business extends React.Component {
         this.data = { "hare": 'name'}
         this.firstUniqChar(["flower", "flow", "flight"])
         DataBinding.getInstance().bindComponent(this, this.data)
-        this.isset = false;
     }
 
     /**
@@ -104,12 +103,23 @@ class Business extends React.Component {
                 }
                 // var csv = XLSX.utils.sheet_to_csv(data);
                 // console.log("--csv-",csv
-                // console.log("---data",data)
+                // // console.log("---data",data)
                 // document.getElementById('result').innerHTML = this.csv2table(data);
 
-                var csv = XLSX.utils.sheet_to_csv(workbook.Sheets.Sheet1);
-                // console.log("----看看这个数据",csv)
-                document.getElementById('result').innerHTML = this.csv2table(csv);
+
+                var temp = XLSX.utils.decode_row("1")
+                var csv = XLSX.utils.sheet_to_json(workbook.Sheets.People);
+                console.log("----看看这个数据", csv)
+                // let newArray = csv.split('\n')
+                // let newObj ={}
+                // for(let i = 0; i < newArray.length; i++){
+                //   let item = newArray[i]
+                //   let tempArr = item.split(',')
+                //   newObj[tempArr[0]] = tempArr[1]
+                // }
+
+                // console.log('---newObj--', newObj)
+                // document.getElementById('result').innerHTML = this.csv2table(csv);
             } catch (e) {
                 // 这里可以抛出文件类型错误不正确的相关提示
                 return;
@@ -164,7 +174,6 @@ class Business extends React.Component {
         return (
             <>
                 {this.getP()}
-
                 <input type='file' accept='.xlsx, .xls' onChange={this.onImportExcel} />
                 <div id='result'></div>
                 <button onClick={this.handle}>点击</button>

@@ -13,11 +13,18 @@ export default [
     tag: 'home',
     children: [
       {
+        key: 'excel',
+        name: 'excel',
+        tag: '',
+        path: '/sitiation/excel',
+      },
+      {
         key: 'toJson',
         name: '转数据页面',
         tag: '',
         path: '/sitiation/toJson',
-      }
+      },
+
     ]
   },
   {
