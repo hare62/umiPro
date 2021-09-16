@@ -140,6 +140,7 @@ class Footer extends React.Component {
         return -1
       }
     }
+
     // 删除某个索引下的节点
     function removeIndex(index) {
       let currNode = this.findIndex(index)

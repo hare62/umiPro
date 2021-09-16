@@ -61,7 +61,12 @@ export default [
         name: '导入表格转json',
         target: '_blank',
         path: '/footer/form',
-      },
+      },{
+        key: 'search',
+        name: 'search组件',
+        target: '_blank',
+        path: '/footer/search',
+      }
     ]
   },
   {

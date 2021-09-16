@@ -58,8 +58,6 @@ class Footer extends React.Component {
        父组件{activeKey}
        <Common activeKey={activeKey}></Common>
      </div>
-    )
-  }
-}
-
+    )}
+    }
 export default Footer

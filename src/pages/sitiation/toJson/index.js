@@ -43,9 +43,9 @@ class Business extends React.Component {
 
     // 将csv转换成简单的表格，会忽略单元格合并，在第一行和第一列追加类似excel的索引
     csv2table = (csv) => {
-        var html = '<table>';
+        var html = '<table  className="table-border">';
         var rows = csv.split('\n');
-        rows.pop(); // 最后一行没用的this.state=
+        rows.pop(); // 最后一行没用的
         let arr = []
         let oneArr = rows[0].split(',')
         rows.shift()
@@ -64,7 +64,8 @@ class Business extends React.Component {
 
             arr.push(obj)
         });
-        html += '</table>';
+        html += `</table >`;
+        console.log('--html-', html)
         return html;
     }
 
