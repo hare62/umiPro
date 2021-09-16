@@ -13,6 +13,18 @@ export default [
     tag: 'home',
     children: [
       {
+        key: 'context',
+        name: 'context',
+        tag: '',
+        path: '/sitiation/context',
+      },
+      {
+        key: 'antv',
+        name: 'antv',
+        tag: '',
+        path: '/sitiation/antv',
+      },
+      {
         key: 'excel',
         name: 'excel',
         tag: '',
@@ -24,7 +36,12 @@ export default [
         tag: '',
         path: '/sitiation/toJson',
       },
-
+      {
+        key: 'toJSX',
+        name: 'toJSX',
+        tag: '',
+        path: '/sitiation/toJXS',
+      },
     ]
   },
   {
@@ -58,6 +75,29 @@ export default [
         name: '表单',
         target: '_blank',
         path: '/form'
+      },{
+        key: 'web',
+        name: 'web学习',
+        target: '_blank',
+        path: '/form/web'
+      },{
+        key: 'MyRcComponent',
+        name: 'MyRcComponent',
+        target: '_blank',
+        path:'/form/MyRcComponent'
+      }
+    ]
+  },{
+    key: 'web',
+    name: '自定义表单',
+    path: '/web',
+    tag: 'tag',
+    children:[
+      {
+        key: 'webs',
+        name: '手写form',
+        target: '_blank',
+        path: '/web'
       }
     ]
   }

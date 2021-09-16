@@ -7,7 +7,9 @@ import {
   Button,
   Input
 } from 'antd';
+// import { debounce } from 'lodash'
 const { Option } = Select;
+
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -22,6 +24,22 @@ const formItemLayout = {
   通过LinkedList的类创建链表实例，链表下有添加，查找，删除，显示节点的方法
   链表初始默认有一个"_head"头部节点，链表中不显示
 */
+
+
+function debounce (func, wait) {
+
+  let timer;
+  return function(e) {
+    console.log('-----',e)
+     let args  = arguments
+    if (timer) clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      func.apply(this, [e])
+    }, wait)
+  }
+}
+
 class Footer extends React.Component {
   constructor(props) {
     super(props)
@@ -50,6 +68,10 @@ class Footer extends React.Component {
     // }
   }
 
+  onChange = debounce((e) => {
+    console.log('--内存--', e)
+  },1000)
+
   render() {
 
     const onFinish = (values) => {
@@ -60,6 +82,11 @@ class Footer extends React.Component {
     return (
       <div >
         footer页面
+        <Input
+          onChange={(e)=>{
+            this.onChange(e.target.value)
+          }}
+          style={{width: '200px'}}></Input>
         <Form
           name="validate_other"
           {...formItemLayout}
@@ -108,7 +135,6 @@ class Footer extends React.Component {
           >
             <Input.Password />
           </Form.Item>
-
           <Form.Item
             name="confirm"
             label="Confirm Password"
