@@ -103,6 +103,12 @@ export default [
         name: '手写form',
         target: '_blank',
         path: '/web'
+      },
+      {
+        key: 'modal',
+        name: 'modal',
+        target: '_blank',
+        path: '/web/modal'
       }
     ]
   }
