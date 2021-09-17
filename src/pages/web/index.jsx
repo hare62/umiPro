@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from 'react'
-import { Input } from 'antd'
-// import Input from './component/Input'
+// import { Input } from 'antd'
+import Input from './component/Input'
 import Form, { Field } from './component'
 
 
