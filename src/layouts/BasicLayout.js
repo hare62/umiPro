@@ -44,23 +44,23 @@ class MenuComponent extends React.Component {
     const { children } = this.props
     // console.log('menus', menus)
     // console.log('this.props', this.props)
-    
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <div 
+        <div
           style={{ height:'80px',lineHeight:'80px',paddingLeft:'20px',fontSize:"bold",backgroundColor:"#262829",color:"#fff",fontSize:'x-large' }}
         >后台工具</div>
         <Layout>
           <Sider width={200}>
-             <Menu 
-              menus={menus} 
+             <Menu
+              menus={menus}
               className="site-layout-background"
               theme="dark"
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
-              style={{ height: '100%', borderRight: 0 }}
-              /> 
+              style={{ height: '100%', borderRight: 0 ,background: '#cce198'}}
+              />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumbs />
@@ -70,7 +70,7 @@ class MenuComponent extends React.Component {
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
-                background: '#151B30',
+                background: '#cce198',
               }}
             >
               {children}
