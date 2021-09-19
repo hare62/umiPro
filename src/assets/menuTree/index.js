@@ -109,6 +109,12 @@ export default [
         name: 'modal',
         target: '_blank',
         path: '/web/modal'
+      },
+      {
+        key: 'Ref',
+        name: 'ref',
+        target: '_blank',
+        path: '/web/Ref'
       }
     ]
   }

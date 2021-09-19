@@ -8,6 +8,14 @@ class Field extends React.Component {
      this.state={
      }
    }
+   componentDidMount(){
+     this.context.registFieldEntities(this)
+
+   }
+
+   onStoreChange = ()=>{
+     this.forceUpdate()
+   }
 
    getControlled = ()=>{
      const { name } = this.props
