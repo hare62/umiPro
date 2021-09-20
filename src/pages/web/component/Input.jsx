@@ -18,13 +18,9 @@ class CustomizeInput extends React.Component {
     this.state = {};
   }
   render() {
-    const { ...otherProps} = this.props;
-    console.log('---为什么绑定valuevalue-', {...otherProps})
     return (
       <div style={{padding: 10}}>
-        <Input style={{outline: "none"}}
-        //  value={value}
-         {...otherProps} />
+        <Input style={{outline: "none"}} {...this.props} />
       </div>
     );
   }
