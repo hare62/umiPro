@@ -11,7 +11,6 @@ class Field extends React.Component{
   }
 
   componentDidMount(){
-    console.log('---有这个数据', this.context)
     this.context.registFiledEntities(this)
   }
 
@@ -22,7 +21,6 @@ class Field extends React.Component{
   control= ()=>{
     const { name } = this.props
     const { getfiledValue, setfiledValue } = this.context
-    console.log('----this.props',  this.props )
     return {
       value: getfiledValue(name),
       onChange: (e)=>{

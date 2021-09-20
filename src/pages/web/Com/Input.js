@@ -12,7 +12,6 @@ class Input extends React.Component{
     const { value = '', ...otherProps} = this.props
 
     return (
-      // <input value={value} {...otherProps}></input>
       <input {...this.props}></input>
     )
   }

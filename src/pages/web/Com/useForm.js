@@ -2,43 +2,73 @@ import React from "react"
 
 class FormStore {
   constructor() {
-    this.store = {
 
-    }
-    this.Store = {}
+    this.store = {}
     this.FiledEntities = {}
+    this.callbacks={}
   }
 
-  registFiledEntities = (entities)=>{
+  registCallback=(callback)=>{
+    this.callbacks={
+      ...this.callbacks,
+      ...callback
+    }
+  }
+
+  registFiledEntities = (entities) => {
     this.FiledEntities = {
       ...this.FiledEntities,
       [entities.props.name]: entities
     }
 
-    console.log('-=', this.FiledEntities)
 
   }
 
   getfiledValue = (name) => {
-    return this.Store[name]
+    return this.store[name]
 
   }
 
-  submit = ()=>{
-    console.log('----submit')
+  validate = () => {
+    let err = []
+
+    Object.keys(this.FiledEntities).forEach((name) => {
+      let value = this.getfiledValue(name)
+      let entities = this.FiledEntities[name]
+      let { rules } = entities.props
+      let rule = rules && rules[0]
+      if (!value) {
+        err.push({
+          message: rule.message,
+          [name]: value
+        })
+      }
+    })
+
+    return err
+  }
+
+  submit = () => {
+    const { onFinish, onFinishFaild } = this.callbacks
+
+
+    let err = this.validate()
+    if(err.length){
+      onFinishFaild(err, this.store)
+    }else{
+      onFinish(this.store)
+    }
   }
 
   setfiledValue = (entity) => {
 
-    this.Store = {
-      ...this.Store,
+    this.store = {
+      ...this.store,
       ...entity
     }
-    console.log('实例数据', this.Store)
-    // Object.keys(this.FiledEntities).forEach((name)=>{
-    //   this.FiledEntities[name].onStoreChange()
-    // })
-
+    Object.keys(this.FiledEntities).forEach((name)=>{
+      this.FiledEntities[name].onStoreChange()
+    })
   }
 
   getForm = () => {
@@ -46,14 +76,20 @@ class FormStore {
       getfiledValue: this.getfiledValue,
       setfiledValue: this.setfiledValue,
       registFiledEntities: this.registFiledEntities,
-      submit: this.submit
+      submit: this.submit,
+      registCallback: this.registCallback
     }
   }
 }
 
-export default function useForm() {
+export default function useForm(form) {
   let useFormRef = React.useRef()
-  let formStore = new FormStore()
-  useFormRef.current = formStore.getForm()
+  if(!form){
+    let formStore = new FormStore()
+    useFormRef.current = formStore.getForm()
+  }else{
+    useFormRef.current = form
+  }
+
   return [useFormRef.current]
 }
