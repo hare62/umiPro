@@ -115,6 +115,12 @@ export default [
         name: 'ref',
         target: '_blank',
         path: '/web/Ref'
+      },
+      {
+        key: 'useMemo',
+        name: 'useMemo',
+        target: '_blank',
+        path: '/web/useMemo'
       }
     ]
   }

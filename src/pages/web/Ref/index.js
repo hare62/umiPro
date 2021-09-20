@@ -1,25 +1,29 @@
-import { Button } from 'antd';
-import React from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 
-class App extends React.Component {
-  componentDidMount() {
-    this.refIns = React.createRef();
-  }
+export default function App(props){
+  const [count, setCount] = useState(0);
 
-  onclick = ()=>{
-    console.log(this.refIns)
-  }
-  render() {
-    return (
-      <div >
-        <div id="refIns" ref={this.refIns}>
-          hello
-        </div>
-        <Button onClick={this.onclick}>点击获取</Button>
-      </div>
-    );
-  }
+  const doubleCount = useMemo(() => {
+    return 2 * count;
+  }, [count]);
 
+  const timerID = useRef();
+
+  useEffect(() => {
+    timerID.current = setInterval(()=>{
+        setCount(count => count + 1);
+    }, 1000);
+  }, []);
+
+  useEffect(()=>{
+      if(count > 10){
+          clearInterval(timerID.current);
+      }
+  });
+
+  return (
+    <>
+      <button onClick={() => {setCount(count + 1)}}>Count: {count}, double: {doubleCount}</button>
+    </>
+  );
 }
-
-export default App

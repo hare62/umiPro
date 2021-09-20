@@ -96,6 +96,7 @@ class FormStore{
 }
 
 export default function useForm(form){
+  // React.useRef()到底返回了什么这个api有什么作用
   const formRef = React.useRef()
   console.log('-formRef----', formRef)
   // 单例
