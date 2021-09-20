@@ -9,9 +9,14 @@ class Field extends React.Component {
      }
    }
    componentDidMount(){
-     this.context.registFieldEntities(this)
-
+    this.unregisterEntity = this.context.registFieldEntities(this)
    }
+
+   componentWillUnmount(){
+    if(this.unregisterEntity){
+      this.unregisterEntity()
+    }
+  }
 
    onStoreChange = ()=>{
      this.forceUpdate()

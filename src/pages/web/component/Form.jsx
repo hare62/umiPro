@@ -7,11 +7,22 @@ import FieldContext from './FieldContext'
  * @param {*} props
  * @returns
  */
-export default function Form(props) {
-  const [formInstance] = useForm()
-  let { children } = props
+export default function Form(props, ref) {
+
+  let { children, onFinish, onFinishFailed, form} = props
+
+  const [formInstance] = useForm(form)
+  React.useImperativeHandle(ref, ()=> formInstance)
+
+  formInstance.setCallbacks({
+    onFinish,
+    onFinishFailed
+  })
   return (
-    <form>
+    <form onSubmit={e=>{
+      e.preventDefault()
+      formInstance.submit()
+    }}>
       <FieldContext.Provider value={formInstance}>
         {children}
       </FieldContext.Provider>

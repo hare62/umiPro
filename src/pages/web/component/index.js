@@ -1,8 +1,9 @@
+import React from 'react'
 import _Form from './Form'
 import _Field from './Field'
 import _useForm from './useForm'
 
-const Form = _Form
+const Form = React.forwardRef(_Form)
 Form.useForm = _useForm
 const Field = _Field
 export {
