@@ -8,7 +8,7 @@ export default function Form({children, onFinish, onFinishFaild, form }) {
   let [formInstance] = useForm(form)
   formInstance.registCallback({onFinish, onFinishFaild})
   return (
-    <form onSubmit={(e)=>{
+    <form style={{width:'200px'}} onSubmit={(e)=>{
        e.preventDefault()
        formInstance.submit()
     }}>

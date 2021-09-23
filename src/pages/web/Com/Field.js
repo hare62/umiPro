@@ -23,13 +23,14 @@ class Field extends React.Component{
     const { getfiledValue, setfiledValue } = this.context
     return {
       value: getfiledValue(name),
-      onChange: (e)=>{
-        return  setfiledValue({[name]: e.target.value})
-      }
+      // onChange: (e)=>{
+      //   return  setfiledValue({[name]: e.target.value})
+      // }
     }
   }
 
   render(){
+    console.log('--this.props-hhhhh', this.props)
     return(
      React.cloneElement(this.props.children, this.control())
     )

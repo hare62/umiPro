@@ -11,6 +11,9 @@ class modalPage extends React.Component{
     }
   }
 
+  /**
+    这种model思维就是说在当前组件里面有一个状态去控制Dom的显示和隐藏
+   */
   componentWillUnmount(){
 
   }

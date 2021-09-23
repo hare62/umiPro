@@ -12,7 +12,9 @@ class Input extends React.Component{
     const { value = '', ...otherProps} = this.props
 
     return (
-      <input {...this.props}></input>
+      <div>
+        <input {...this.props}></input>
+      </div>
     )
   }
 }

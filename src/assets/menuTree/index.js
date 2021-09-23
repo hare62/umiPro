@@ -42,6 +42,12 @@ export default [
         tag: '',
         path: '/sitiation/toJXS',
       },
+       {
+        key: 'form',
+        name: 'form格式',
+        tag: '',
+        path: '/sitiation/form',
+      },
     ]
   },
   {
