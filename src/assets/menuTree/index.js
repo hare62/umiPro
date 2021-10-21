@@ -11,6 +11,14 @@ export default [
     name: '主页面',
     path: '/sitiation',
     tag: 'home',
+    // children: [
+    //   {
+    //     key: 'form',
+    //     name: 'form',
+    //     tag: '',
+    //     path: '/sitiation/form'
+    //   }
+    // ]
     children: [
       {
         key: 'context',
@@ -127,6 +135,12 @@ export default [
         name: 'useMemo',
         target: '_blank',
         path: '/web/useMemo'
+      },
+      {
+        key: 'List',
+        name: 'List',
+        target: '_blank',
+        path: '/web/List'
       }
     ]
   }

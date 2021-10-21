@@ -30,7 +30,7 @@ function debounce (func, wait) {
 
   let timer;
   return function(e) {
-    console.log('-----',e)
+    console.log('--内存111--', e.targrt.value)
      let args  = arguments
     if (timer) clearTimeout(timer);
 
@@ -72,6 +72,12 @@ class Footer extends React.Component {
     console.log('--内存--', e)
   },1000)
 
+
+  onChanges = (e)=>{
+    e.persist()
+    console.log('--内存222222--', e.target.value)
+    this.setState({value:e.target.value})
+  }
   render() {
 
     const onFinish = (values) => {
@@ -81,7 +87,11 @@ class Footer extends React.Component {
 
     return (
       <div >
-        <Form
+        {/* <Button onClick={(e)=>{this.onChange(e)}}>kkkkkkkooooo</Button> */}
+        {/* <Input onClick={(e)=>{this.onChange(e)}}/> */}
+        <Input onChange={e => this.onChanges(e)} />
+        kkkkkkkkkkkkkkkkkk
+        {/* <Form
           name="validate_other"
           {...formItemLayout}
           onFinish={onFinish}
@@ -163,7 +173,7 @@ class Footer extends React.Component {
               Submit
             </Button>
           </Form.Item>
-        </Form>
+        </Form> */}
       </div>
     )
   }
