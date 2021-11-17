@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Button, Checkbox, Col, Row } from 'antd';
 
 export default (props) => {
-  const [form] = Form.useForm();
+  // const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -12,13 +12,13 @@ export default (props) => {
   };
 
   const onReset = ()=>{
-    console.log('----form-', form)
+    // console.log('----form-', form)
   }
   const { children } = props;
   console.log('-----', children)
   return (
     <Form
-      form={form}
+      // form={form}
       name="basic"
       labelCol={{
         span: 8,
