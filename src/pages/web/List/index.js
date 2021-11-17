@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Pagination, Checkbox, Select } from 'antd';
+import { Pagination, Checkbox, Select, Form, Input, Button, } from 'antd';
 import style from './index.less';
+import SearchView from './Search';
 const { Option } = Select;
 
 let len = 55
@@ -94,6 +95,32 @@ export default () => {
   }
   return (
     <div className="main">
+      <SearchView >
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your username!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </SearchView>
       <button onClick={onChageChexked}>改变Child</button>
       <Select defaultValue="cur" style={{ width: 120 }} onChange={handleChange}>
         <Option value="all">全部</Option>
