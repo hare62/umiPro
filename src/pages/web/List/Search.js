@@ -2,7 +2,8 @@ import React from "react";
 import { Form, Input, Button, Checkbox, Col, Row } from 'antd';
 
 export default (props) => {
-  // const [form] = Form.useForm();
+  const [form] = Form.useForm();
+  console.log('------Form-', Form.useForm())
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -12,13 +13,15 @@ export default (props) => {
   };
 
   const onReset = ()=>{
-    // console.log('----form-', form)
+    const { reset } = props
+    reset && reset()
+    form.resetFields({})
   }
-  const { children } = props;
+  const { children, initialValues } = props;
   console.log('-----', children)
   return (
     <Form
-      // form={form}
+      form={form}
       name="basic"
       labelCol={{
         span: 8,
@@ -33,6 +36,7 @@ export default (props) => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="inline"
+      initialValues={initialValues}
     >
       <Row gutter={16}>
         {React.Children.map(props.children, (item) => {
@@ -56,7 +60,7 @@ export default (props) => {
             span: 16,
           }}
         >
-          <Button htmlType="submit" onClick={onReset}>
+          <Button onClick={onReset}>
             重置
           </Button>
         </Form.Item>

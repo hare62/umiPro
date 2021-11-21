@@ -127,6 +127,18 @@ export default [
         name: 'useMemo',
         target: '_blank',
         path: '/web/useMemo'
+      },
+      {
+        key: 'List',
+        name: 'List',
+        target: '_blank',
+        path: '/web/List'
+      },
+      {
+        key: 'ListDetial',
+        name: 'ListDetial',
+        target: '_blank',
+        path: '/web/List/Detail'
       }
     ]
   }
